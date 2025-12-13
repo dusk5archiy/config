@@ -4,7 +4,7 @@ mkdir -p "$CUSTOM_SETTINGS_DIR/init"
 mkdir -p "$CUSTOM_SETTINGS_DIR/path"
 mkdir -p "$CUSTOM_SETTINGS_DIR/scripts"
 
-for file in "$ISOLATED_DIR/env"/*.sh; do
+for file in "$SYSTEM_DIR/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
@@ -12,7 +12,7 @@ for file in "$CUSTOM_SETTINGS_DIR/env"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-for file in "$ISOLATED_DIR/init"/*.sh; do
+for file in "$SYSTEM_DIR/init"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
@@ -20,14 +20,14 @@ for file in "$CUSTOM_SETTINGS_DIR/init"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
-CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$ISOLATED_DIR/scripts:$STORE_DIR"
+CUSTOM_PATH="$CUSTOM_SETTINGS_DIR/scripts:$SYSTEM_DIR/scripts:$STORE_DIR"
 
 addpath() {
   local dir="$1"
   CUSTOM_PATH="$CUSTOM_PATH:$dir"
 }
 
-for file in "$ISOLATED_DIR/path"/*.sh; do
+for file in "$SYSTEM_DIR/path"/*.sh; do
   [[ -f "$file" ]] && source "$file"
 done
 
