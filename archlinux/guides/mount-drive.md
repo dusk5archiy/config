@@ -14,8 +14,15 @@ List the drives:
 lsblk
 ```
 
-Mount `sdb2` to `/a`:
+Mount `sdb2` to `/s`:
 
 ```bash
-mount -t /dev/sdb2 /a
+mount -t /dev/sdb2 /s
+```
+
+To mount `sdb2` permanently, add this to `/etc/fstab`
+
+```txt
+/dev/sdb2 /s ntfs nofail 0 0
+```
 ```
